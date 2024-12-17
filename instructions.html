@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caesar Cipher Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1d2b64, #f8cdda);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 600px;
+      animation: slideIn 1s ease-out;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      color: #ff6f61;
+      border: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.2);
+      color: #f8cdda;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      color: #ff6f61;
+      letter-spacing: 3px;
+      animation: bounceIn 1s ease-in-out;
+    }
+
+    .header .subtitle {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #ff6f61;
+      margin: 20px 0;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      font-size: 1rem;
+      margin: 8px 0;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInLeft 0.8s forwards;
+    }
+
+    ul li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    ul li:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    ul li:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .footer button {
+      background: linear-gradient(135deg, #ff6f61, #f8cdda);
+      color: white;
+      font-size: 1rem;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      text-transform: uppercase;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(255, 111, 97, 0.6);
+    }
+
+    .footer button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-45deg);
+      transition: left 0.4s;
+    }
+
+    .footer button:hover::before {
+      left: 100%;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button class="close-btn" onclick="window.location.href='index.html';">✖</button>
+    <div class="header">
+      <h1>Caesar Cipher Game</h1>
+      <label style="margin: 0; font-size: 10px;">By: @cheysss, @jaspurrr, @sheinalyn</label><br><br>
+      <p class="subtitle">Test your cryptography skills!</p>
+    </div>
+    <div class="content">
+      <p>Decrypt encrypted messages using the Caesar Cipher. Each message is encrypted with a random shift. Your task is
+        to figure out the original text using the provided hints.</p>
+
+      <h2>How to Play</h2>
+      <ul>
+        <li>An encrypted message will appear on the screen.</li>
+        <li>Each message comes with a hint to guide you.</li>
+        <li>Enter your decrypted answer and submit it.</li>
+        <li>Earn points for each correct answer and move to the next level!</li>
+        <li>You have 5 mins. to finish the game.</li>
+        <li>Win 20 levels to kill the monster!</li>
+      </ul>
+      <p>Note: Sometimes first level is free</p>
+    </div>
+    <div class="footer">
+      <button id="start-game">Start Game</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("start-game").addEventListener("click", () => {
+      const button = document.getElementById("start-game");
+      button.style.animation = "fadeOut 0.5s forwards";
+      setTimeout(() => {
+        window.location.href = "game.html"; // Replace with your game's main HTML file
+      }, 500);
+    });
+  </script>
+</body>
+
+</html>

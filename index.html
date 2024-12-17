@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Caesar Cipher Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1d2b64, #f8cdda);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .main-content {
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff6f61;
+      margin-bottom: 20px;
+      text-shadow: 0 5px 15px rgba(255, 111, 97, 0.6);
+      animation: slideInFromTop 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .cta-buttons button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff6f61, #f8cdda);
+      color: #fff;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(255, 111, 97, 0.6);
+    }
+
+    .cta-buttons button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-45deg);
+      transition: left 0.4s;
+    }
+
+    .cta-buttons button:hover::before {
+      left: 100%;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInFromTop {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <h1>Welcome to the Caesar Cipher Game!</h1>
+    <p>
+      Ready to test your cryptography skills? Crack the codes, defeat the monster, and become the ultimate Cipher Master.
+      Adventure awaits!
+    </p>
+    <div class="cta-buttons">
+      <button id="play-now">Play Now</button>
+      <button id="how-to-play">How to Play</button>
+      <button id="about-us">About Us</button>
+    </div>
+  </div>
+
+
+  <script>
+    document.getElementById("play-now").addEventListener("click", () => {
+      window.location.href = "game.html"; // Replace with the game page link
+    });
+
+    document.getElementById("how-to-play").addEventListener("click", () => {
+      window.location.href = "instructions.html"; // Replace with the instructions page link
+    });
+
+    document.getElementById("about-us").addEventListener("click", () => {
+      window.location.href = "about.html"; // Link to the About Us page
+    });
+  </script>
+</body>
+
+</html>
